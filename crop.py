@@ -117,7 +117,7 @@ if state and season:
 
             # If the predicted crop is "rice", set the background image
             if predicted_crop.lower() == "rice":
-                set_background("https://media.istockphoto.com/id/1151784210/photo/ripe-rice-field-and-sky-background-at-sunset.jpg?s=2048x2048&w=is&k=20&c=R_GmEOH6scAuR3VwRHcDuWMKTOkG7CWhhADKsq_ErFY=jpg")  # Change this to your rice image path
+                set_background("https://www.shutterstock.com/image-photo/white-rice-paddy-plant-background-2270511133.jpg")  # Change this to your rice image path
     else:
         st.error("Invalid state or season. Please try again.")
 
