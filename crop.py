@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import base64
+import requests
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder, StandardScaler, PolynomialFeatures
 from imblearn.over_sampling import SMOTE
@@ -67,20 +68,25 @@ def get_expected_values(state, season):
         "rainfall": state_data[f"rainfall_{season_suffix}"].values[0]
     }
 
-# Function to set background image
-def set_background(image_file):
-    with open(image_file, "rb") as image:
-        encoded = base64.b64encode(image.read()).decode()
-    css = f"""
-    <style>
-    .stApp {{
-        background-image: url("data:image/jpeg;base64,{encoded}");
-        background-size: cover;
-        background-position: center;
-    }}
-    </style>
-    """
-    st.markdown(css, unsafe_allow_html=True)
+# Function to set background image from URL
+def set_background_from_url(image_url):
+    # Fetch image from URL
+    response = requests.get(image_url)
+    if response.status_code == 200:
+        # Encode the image to base64
+        encoded = base64.b64encode(response.content).decode()
+        css = f"""
+        <style>
+        .stApp {{
+            background-image: url("data:image/jpeg;base64,{encoded}");
+            background-size: cover;
+            background-position: center;
+        }}
+        </style>
+        """
+        st.markdown(css, unsafe_allow_html=True)
+    else:
+        st.error("Failed to load the image from the URL")
 
 # Streamlit UI
 st.title("Crop Recommendation System")
@@ -115,9 +121,10 @@ if state and season:
             
             st.success(f"Predicted Crop: {predicted_crop}")
 
-            # If the predicted crop is "rice", set the background image
+            # If the predicted crop is "rice", set the background image from URL
             if predicted_crop.lower() == "rice":
-                set_background("https://www.shutterstock.com/image-photo/white-rice-paddy-plant-background-2270511133.jpg")  # Change this to your rice image path
+                set_background_from_url("https://www.shutterstock.com/image-photo/white-rice-paddy-plant-background-2270511133.jpg")  # Change this to your rice image URL
     else:
         st.error("Invalid state or season. Please try again.")
+
 
