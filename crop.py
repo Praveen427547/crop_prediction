@@ -8,7 +8,9 @@ from sklearn.feature_selection import SelectKBest, f_classif
 import joblib
 
 # Load dataset (assuming df is available)
-df = pd.read_excel('Crop_recommendation.xlsx', engine=)  # Replace with actual dataset path
+df = pd.read_excel('Crop_recommendation.xlsx', engine='openpyxl')  
+dt = pd.read_excel('NPK.xlsx', engine='openpyxl')
+
 
 # Feature selection
 X = df[["N", "P", "K", "rainfall", "humidity", "temperature"]]
