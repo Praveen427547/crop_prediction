@@ -88,6 +88,14 @@ def set_background_from_url(image_url):
     else:
         st.error("Failed to load the image from the URL")
 
+# Mapping of crops to their respective background image URLs
+crop_images = {
+    "rice": "https://www.shutterstock.com/image-photo/white-rice-paddy-plant-background-2270511133.jpg",  # Replace with your rice image URL
+    "coconut": "https://media.sciencephoto.com/image/c0070307/800wm/C0070307-Coconut_trees.jpg",  # Replace with your wheat image URL
+    "apple": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsvTpqWcILHiZFLWail7jy8ymUdN8rLvzgQ&s.jpg",  # Replace with your corn image URL
+    # Add other crops and their URLs here
+}
+
 # Streamlit UI
 st.title("Crop Recommendation System")
 
@@ -121,10 +129,10 @@ if state and season:
             
             st.success(f"Predicted Crop: {predicted_crop}")
 
-            # If the predicted crop is "rice", set the background image from URL
-            if predicted_crop.lower() == "rice":
-                set_background_from_url("https://www.shutterstock.com/image-photo/white-rice-paddy-plant-background-260nw-2270511133.jpg")  # Change this to your rice image URL
+            # If the predicted crop exists in the dictionary, set the background image
+            if predicted_crop.lower() in crop_images:
+                set_background_from_url(crop_images[predicted_crop.lower()])
+            else:
+                st.error("No image available for the predicted crop.")
     else:
         st.error("Invalid state or season. Please try again.")
-
-
