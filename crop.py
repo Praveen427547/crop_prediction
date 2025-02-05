@@ -1,92 +1,98 @@
-
+import streamlit as st
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.preprocessing import LabelEncoder
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder, StandardScaler, PolynomialFeatures
+from imblearn.over_sampling import SMOTE
+from sklearn.feature_selection import SelectKBest, f_classif
+import joblib
 
-df = pd.read_excel('Crop_recommendation.xlsx', engine='openpyxl')
-dt = pd.read_excel('NPK.xlsx', engine='openpyxl')
+# Load dataset (assuming df is available)
+df = pd.read_excel('Crop_recommendation.xlsx', engine=)  # Replace with actual dataset path
 
-
+# Feature selection
 X = df[["N", "P", "K", "rainfall", "humidity", "temperature"]]
 y = df["label"]
 
-# Encoding target labels
+# Encode target labels
 label_encoder = LabelEncoder()
 y_encoded = label_encoder.fit_transform(y)
 
-# Train-test split
-X_train, X_test, y_train, y_test = train_test_split(X, y_encoded, test_size=0.2, random_state=42)
+# Scale features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
 
-# Train the Decision Tree model
-dt_model = DecisionTreeClassifier(criterion='gini', random_state=42)
-dt_model.fit(X_train, y_train)
+# Apply polynomial transformation
+poly = PolynomialFeatures(degree=2, include_bias=False)
+X_poly = poly.fit_transform(X_scaled)
 
+# Feature selection
+selector = SelectKBest(score_func=f_classif, k=10)
+X_selected = selector.fit_transform(X_poly, y_encoded)
+
+# Handle class imbalance
+smote = SMOTE(random_state=42)
+X_balanced, y_balanced = smote.fit_resample(X_selected, y_encoded)
+
+# Train model
+rf_model = RandomForestClassifier(
+    n_estimators=200,
+    max_depth=20,
+    min_samples_split=2,
+    min_samples_leaf=1,
+    class_weight="balanced",
+    random_state=42
+)
+rf_model.fit(X_balanced, y_balanced)
+
+# Load state-season dataset
+dt = pd.read_csv("state_season_data.csv")  # Replace with actual dataset path
 
 def get_expected_values(state, season):
-    # Filter the dataset for the specified state
     state_data = dt[dt["state"].str.lower() == state.lower()]
-
     if state_data.empty:
-        raise ValueError(f"State '{state}' not found in the dataset.")
-
-    # Map season to column suffix
-    season_map = {
-        "zaid": "zaid",
-        "rabi": "rabi",
-        "kharif": "kharif"
+        return None
+    
+    season_map = {"zaid": "zaid", "rabi": "rabi", "kharif": "kharif"}
+    if season.lower() not in season_map:
+        return None
+    
+    season_suffix = season_map[season.lower()]
+    return {
+        "N": state_data["N"].values[0],
+        "P": state_data["P"].values[0],
+        "K": state_data["K"].values[0],
+        "temperature": state_data[f"temperature_{season_suffix}"].values[0],
+        "humidity": state_data[f"humidity_{season_suffix}"].values[0],
+        "rainfall": state_data[f"rainfall_{season_suffix}"].values[0]
     }
 
-    if season.lower() not in season_map:
-        raise ValueError(f"Season '{season}' is not valid. Choose from zaid, rabi, or kharif.")
+# Streamlit UI
+st.title("Crop Recommendation System")
+state = st.text_input("Enter State Name:")
+season = st.selectbox("Select Season:", ["zaid", "rabi", "kharif"])
 
-    season_suffix = season_map[season.lower()]
+if state and season:
+    expected_values = get_expected_values(state, season)
+    if expected_values:
+        N = st.number_input("Nitrogen (N)", value=expected_values["N"])
+        P = st.number_input("Phosphorus (P)", value=expected_values["P"])
+        K = st.number_input("Potassium (K)", value=expected_values["K"])
+        rainfall = st.number_input("Rainfall", value=expected_values["rainfall"])
+        humidity = st.number_input("Humidity", value=expected_values["humidity"])
+        temperature = st.number_input("Temperature", value=expected_values["temperature"])
+        
+        if st.button("Predict Crop"):
+            input_features = np.array([[N, P, K, rainfall, humidity, temperature]])
+            input_features_scaled = scaler.transform(input_features)
+            input_features_poly = poly.transform(input_features_scaled)
+            input_features_selected = selector.transform(input_features_poly)
+            
+            prediction_encoded = rf_model.predict(input_features_selected)[0]
+            predicted_crop = label_encoder.inverse_transform([prediction_encoded])[0]
+            
+            st.success(f"Predicted Crop: {predicted_crop}")
+    else:
+        st.error("Invalid state or season. Please try again.")
 
-    # Extract expected values
-    expected_temperature = state_data[f"temperature_{season_suffix}"].values[0]
-    expected_humidity = state_data[f"humidity_{season_suffix}"].values[0]
-    expected_rainfall = state_data[f"rainfall_{season_suffix}"].values[0]
-    expected_n = state_data["N"].values[0]
-    expected_p = state_data["P"].values[0]
-    expected_k = state_data["K"].values[0]
-
-    return expected_n, expected_p, expected_k, expected_temperature, expected_humidity, expected_rainfall
-
-def predict_crop_decision_tree():
-    try:
-        # Get state input
-        state = input("Enter state name: ").strip()
-
-        # Get season input
-        season = input("Enter season (zaid/rabi/kharif): ").strip()
-
-        # Fetch expected values
-        expected_n, expected_p, expected_k, expected_temperature, expected_humidity, expected_rainfall = get_expected_values(state, season)
-
-        print(f"\nEnter values for prediction:")
-
-        # Get feature inputs
-        N = float(input(f"N (Nitrogen) [Expected: {expected_n}]: ") or expected_n)
-        P = float(input(f"P (Phosphorus) [Expected: {expected_p}]: ") or expected_p)
-        K = float(input(f"K (Potassium) [Expected: {expected_k}]: ") or expected_k)
-        rainfall = float(input(f"Rainfall [Expected: {expected_rainfall}]: ") or expected_rainfall)
-        humidity = float(input(f"Humidity [Expected: {expected_humidity}]: ") or expected_humidity)
-        temperature = float(input(f"Temperature [Expected: {expected_temperature}]: ") or expected_temperature)
-
-        # Create a feature array with the exact columns used during training
-        input_features = [[N, P, K, rainfall, humidity, temperature]]
-
-        # Predict using the trained model
-        prediction_encoded = dt_model.predict(input_features)[0]
-        predicted_crop = label_encoder.inverse_transform([prediction_encoded])[0]
-
-        print(f"\nPredicted Crop: {predicted_crop}")
-
-    except ValueError as e:
-        print(f"Error: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
-
-# Run the interactive function1
-predict_crop_decision_tree()
 
