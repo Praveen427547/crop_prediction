@@ -1,0 +1,7 @@
+pandas
+numpy
+sklearn.model_selection
+sklearn.ensemble
+sklearn.preprocessing
+imblearn.over_sampling
+sklearn.feature_selection
