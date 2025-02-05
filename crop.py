@@ -6,7 +6,8 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler, PolynomialFeatur
 from imblearn.over_sampling import SMOTE
 from sklearn.feature_selection import SelectKBest, f_classif
 
-df = pd.read_csv('Crop_recommendation.csv')
+df = pd.read_csv("Crop_recommendation.csv", encoding="utf-8")
+
 dt = pd.read_excel('NPK.xlsx', engine='openpyxl')
 
 
