@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import base64
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder, StandardScaler, PolynomialFeatures
 from imblearn.over_sampling import SMOTE
@@ -66,6 +67,21 @@ def get_expected_values(state, season):
         "rainfall": state_data[f"rainfall_{season_suffix}"].values[0]
     }
 
+# Function to set background image
+def set_background(image_file):
+    with open(image_file, "rb") as image:
+        encoded = base64.b64encode(image.read()).decode()
+    css = f"""
+    <style>
+    .stApp {{
+        background-image: url("data:image/jpeg;base64,{encoded}");
+        background-size: cover;
+        background-position: center;
+    }}
+    </style>
+    """
+    st.markdown(css, unsafe_allow_html=True)
+
 # Streamlit UI
 st.title("Crop Recommendation System")
 
@@ -98,5 +114,10 @@ if state and season:
             predicted_crop = label_encoder.inverse_transform([prediction_encoded])[0]
             
             st.success(f"Predicted Crop: {predicted_crop}")
+
+            # If the predicted crop is "rice", set the background image
+            if predicted_crop.lower() == "rice":
+                set_background("https://media.istockphoto.com/id/1151784210/photo/ripe-rice-field-and-sky-background-at-sunset.jpg?s=2048x2048&w=is&k=20&c=R_GmEOH6scAuR3VwRHcDuWMKTOkG7CWhhADKsq_ErFY=jpg")  # Change this to your rice image path
     else:
         st.error("Invalid state or season. Please try again.")
+
