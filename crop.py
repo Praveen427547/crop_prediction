@@ -123,7 +123,7 @@ if state and season:
 
             # If the predicted crop is "rice", set the background image from URL
             if predicted_crop.lower() == "rice":
-                set_background_from_url("https://www.shutterstock.com/image-photo/white-rice-paddy-plant-background-2270511133.jpg")  # Change this to your rice image URL
+                set_background_from_url("https://www.shutterstock.com/image-photo/white-rice-paddy-plant-background-260nw-2270511133.jpg")  # Change this to your rice image URL
     else:
         st.error("Invalid state or season. Please try again.")
 
