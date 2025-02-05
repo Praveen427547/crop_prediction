@@ -47,8 +47,6 @@ rf_model = RandomForestClassifier(
 )
 rf_model.fit(X_balanced, y_balanced)
 
-# Load state-season dataset
-dt = pd.read_csv("state_season_data.csv")  # Replace with actual dataset path
 
 def get_expected_values(state, season):
     state_data = dt[dt["state"].str.lower() == state.lower()]
