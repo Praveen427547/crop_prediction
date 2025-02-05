@@ -11,7 +11,6 @@ import joblib
 df = pd.read_excel('Crop_recommendation.xlsx', engine='openpyxl')  
 dt = pd.read_excel('NPK.xlsx', engine='openpyxl')
 
-
 # Feature selection
 X = df[["N", "P", "K", "rainfall", "humidity", "temperature"]]
 y = df["label"]
@@ -69,7 +68,14 @@ def get_expected_values(state, season):
 
 # Streamlit UI
 st.title("Crop Recommendation System")
-state = st.text_input("Enter State Name:")
+
+# Get unique states from dataset
+state_list = sorted(dt["state"].dropna().unique())
+
+# State selection using dropdown
+state = st.selectbox("Select State:", state_list)
+
+# Season selection using dropdown
 season = st.selectbox("Select Season:", ["zaid", "rabi", "kharif"])
 
 if state and season:
@@ -94,5 +100,3 @@ if state and season:
             st.success(f"Predicted Crop: {predicted_crop}")
     else:
         st.error("Invalid state or season. Please try again.")
-
-
