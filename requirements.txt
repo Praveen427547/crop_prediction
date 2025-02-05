@@ -1,5 +1,8 @@
 pandas
 numpy
+streamlit
+scikit-learn
+openpyxl
 sklearn.model_selection
 sklearn.ensemble
 sklearn.preprocessing
