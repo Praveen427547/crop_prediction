@@ -97,7 +97,7 @@ crop_images = {
     "muskmelon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMXXG-GCCjjh3ERJVAYkBAe0H-wAb3pXwXqQ&s.jpg",
     "maize" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpcPJn8xeSS5N4LBzA9JZv0TFkXJSDPxVIHQ&s.jpg",
     "orange" : "https://cdn.freshfruitportal.com/2021/07/WH_2008_PC08_0754_rgb-1024x683.jpg",
-    "cotton" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj3dlhC7IgfWlCaKLEXX46uPY04hPOmTSwrA&s.jpg",
+    "cotton" : "https://images.unsplash.com/photo-1502395809857-fd80069897d0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y290dG9uJTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
     # Add other crops and their URLs here
 }
 
