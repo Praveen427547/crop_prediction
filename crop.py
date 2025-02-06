@@ -95,7 +95,7 @@ crop_images = {
     "apple": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsvTpqWcILHiZFLWail7jy8ymUdN8rLvzgQ&s.jpg",  # Replace with your corn image URL
     "watermelon" : "https://i.ytimg.com/vi/9D2WgDKDTy4/hq720.jpg",
     "muskmelon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMXXG-GCCjjh3ERJVAYkBAe0H-wAb3pXwXqQ&s.jpg",
-    "maizez" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpcPJn8xeSS5N4LBzA9JZv0TFkXJSDPxVIHQ&s.jpg",
+    "maize" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpcPJn8xeSS5N4LBzA9JZv0TFkXJSDPxVIHQ&s.jpg",
     # Add other crops and their URLs here
 }
 
