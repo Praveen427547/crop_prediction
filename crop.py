@@ -96,6 +96,7 @@ crop_images = {
     "watermelon" : "https://i.ytimg.com/vi/9D2WgDKDTy4/hq720.jpg",
     "muskmelon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMXXG-GCCjjh3ERJVAYkBAe0H-wAb3pXwXqQ&s.jpg",
     "maize" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpcPJn8xeSS5N4LBzA9JZv0TFkXJSDPxVIHQ&s.jpg",
+    "orange" : "https://cdn.freshfruitportal.com/2021/07/WH_2008_PC08_0754_rgb-1024x683.jpg",
     # Add other crops and their URLs here
 }
 
