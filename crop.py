@@ -92,7 +92,7 @@ def set_background_from_url(image_url):
 crop_images = {
     "rice": "https://t4.ftcdn.net/jpg/09/47/19/71/360_F_947197189_OmyKmvXf25RlHFODviXKNL1zddUMFIaN.jpg",  # Replace with your rice image URL
     "coconut": "https://parachutekalpavriksha.org/cdn/shop/articles/Sure_ways_to_keep_the_coconut_tree_healthy.jpg",  # Replace with your wheat image URL
-    "apple": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsvTpqWcILHiZFLWail7jy8ymUdN8rLvzgQ&s.jpg",  # Replace with your corn image URL
+    "apple": "https://usapple.org/wp-content/uploads/2019/11/feature-image-chlorpyrifos.jpg",  # Replace with your corn image URL
     "watermelon" : "https://i.ytimg.com/vi/9D2WgDKDTy4/hq720.jpg",
     "muskmelon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMXXG-GCCjjh3ERJVAYkBAe0H-wAb3pXwXqQ&s.jpg",
     "maize" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpcPJn8xeSS5N4LBzA9JZv0TFkXJSDPxVIHQ&s.jpg",
