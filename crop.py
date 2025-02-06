@@ -91,7 +91,7 @@ def set_background_from_url(image_url):
 # Mapping of crops to their respective background image URLs
 crop_images = {
     "rice": "https://t4.ftcdn.net/jpg/09/47/19/71/360_F_947197189_OmyKmvXf25RlHFODviXKNL1zddUMFIaN.jpg",  # Replace with your rice image URL
-    "coconut": "https://media.sciencephoto.com/image/c0070307/800wm/C0070307-Coconut_trees.jpg",  # Replace with your wheat image URL
+    "coconut": "https://parachutekalpavriksha.org/cdn/shop/articles/Sure_ways_to_keep_the_coconut_tree_healthy.jpg",  # Replace with your wheat image URL
     "apple": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsvTpqWcILHiZFLWail7jy8ymUdN8rLvzgQ&s.jpg",  # Replace with your corn image URL
     # Add other crops and their URLs here
 }
