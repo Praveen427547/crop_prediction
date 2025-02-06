@@ -97,7 +97,7 @@ crop_images = {
     "muskmelon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMXXG-GCCjjh3ERJVAYkBAe0H-wAb3pXwXqQ&s.jpg",
     "maize" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpcPJn8xeSS5N4LBzA9JZv0TFkXJSDPxVIHQ&s.jpg",
     "orange" : "https://cdn.freshfruitportal.com/2021/07/WH_2008_PC08_0754_rgb-1024x683.jpg",
-    "cotton" : "https://multisite-assets.icl-growingsolutions.com/wp-content/uploads/sites/12/2023/04/20052120/USA_Ag_Crop-Page_Body-Image_CottonField.jpg",
+    "cotton" : "https://static.vecteezy.com/system/resources/thumbnails/041/410/006/small/ai-generated-cotton-crop-at-peak-growth-in-a-summer-landscape-free-photo.jpg",
     # Add other crops and their URLs here
 }
 
