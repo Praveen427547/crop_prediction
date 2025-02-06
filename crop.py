@@ -93,7 +93,7 @@ crop_images = {
     "rice": "https://t4.ftcdn.net/jpg/09/47/19/71/360_F_947197189_OmyKmvXf25RlHFODviXKNL1zddUMFIaN.jpg",  # Replace with your rice image URL
     "coconut": "https://parachutekalpavriksha.org/cdn/shop/articles/Sure_ways_to_keep_the_coconut_tree_healthy.jpg",  # Replace with your wheat image URL
     "apple": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfsvTpqWcILHiZFLWail7jy8ymUdN8rLvzgQ&s.jpg",  # Replace with your corn image URL
-    "water melon" : "https://media.istockphoto.com/id/1385465402/photo/watermelon-crop-planted-at-agriculture-field-or-farm-at-india-during-summer-striped-ripe.jpg",
+    "watermelon" : "https://media.istockphoto.com/id/1385465402/photo/watermelon-crop-planted-at-agriculture-field-or-farm-at-india-during-summer-striped-ripe.jpg",
     # Add other crops and their URLs here
 }
 
