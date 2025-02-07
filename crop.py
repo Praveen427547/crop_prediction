@@ -133,7 +133,7 @@ if state and season:
             prediction_encoded = rf_model.predict(input_features_selected)[0]
             predicted_crop = label_encoder.inverse_transform([prediction_encoded])[0]
             
-            st.markdown(f"<h2 style='text-align: center; color: green; font-size: 32px;'>Predicted Crop: {predicted_crop}</h2>", unsafe_allow_html=True)
+            st.markdown(f"<h2 style='text-align: center; color: white; font-size: 32px;'>Predicted Crop: {predicted_crop}</h2>", unsafe_allow_html=True)
 
 
             # If the predicted crop exists in the dictionary, set the background image
