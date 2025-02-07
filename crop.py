@@ -111,6 +111,7 @@ crop_images = {
     "papaya" : "https://www.agrifarming.in/wp-content/uploads/2022/06/Papaya-Farming-in-USA1-1024x768.jpg",
     "jute" : "https://krishipathshala.in/wp-content/uploads/2020/08/JUTE-CULTIVATION-IN-SOUTHDINAJPUR-converted-1024x582.jpg",
     "coffee" : "https://vajiram-prod.s3.ap-south-1.amazonaws.com/Coffee_production_jpg_67bae9504f.jpg",
+    "pigeonpeas" : "https://www.croptrust.org/fileadmin/uploads/croptrust/Photos/Crops/Pigeon_Pea.jpeg",
     
     
     # Add other crops and their URLs here
