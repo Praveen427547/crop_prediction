@@ -100,7 +100,7 @@ crop_images = {
     "cotton" : "https://images.unsplash.com/photo-1502395809857-fd80069897d0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y290dG9uJTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
     "mango" : "https://5.imimg.com/data5/SELLER/Default/2024/3/405318428/MD/YK/OO/16750044/nursery-mango-plant-500x500.png",
     "chickpea" : "https://storage.googleapis.com/cgiarorg/2020/07/f6257e07-new-chickpea-varieties.jpg",
-    "kidneybeans" : "https://www.naturebring.com/wp-content/uploads/2019/02/Red-Kidney-beans22.jpg",
+    "kidneybeans" : "https://wildroseheritageseed.com/cdn/shop/products/s145558776392258095_p281_i57_w733_750x810.jpg?v=1674218551.jpg",
     "mothbeans" : "https://thumbs.dreamstime.com/b/mung-beans-agricultural-crop-cultivated-thailand-translated-various-foods-331678176.jpg",
     "mungbean" : "https://s.hdnux.com/photos/01/35/27/22/24474798/3/rawImage.jpg",
     "blackgram" : "https://apseeds.ap.gov.in/Assets/Images/inner-pages-img/Blackgram.jpg",
