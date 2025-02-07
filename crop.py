@@ -99,6 +99,20 @@ crop_images = {
     "orange" : "https://cdn.freshfruitportal.com/2021/07/WH_2008_PC08_0754_rgb-1024x683.jpg",
     "cotton" : "https://images.unsplash.com/photo-1502395809857-fd80069897d0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y290dG9uJTIwcGxhbnR8ZW58MHx8MHx8fDA%3D",
     "mango" : "https://5.imimg.com/data5/SELLER/Default/2024/3/405318428/MD/YK/OO/16750044/nursery-mango-plant-500x500.png",
+    "chickpea" : "https://storage.googleapis.com/cgiarorg/2020/07/f6257e07-new-chickpea-varieties.jpg",
+    "kidneybeans" : "https://www.naturebring.com/wp-content/uploads/2019/02/Red-Kidney-beans22.jpg",
+    "mothbeans" : "https://thumbs.dreamstime.com/b/mung-beans-agricultural-crop-cultivated-thailand-translated-various-foods-331678176.jpg",
+    "mungbean" : "https://s.hdnux.com/photos/01/35/27/22/24474798/3/rawImage.jpg",
+    "blackgram" : "https://apseeds.ap.gov.in/Assets/Images/inner-pages-img/Blackgram.jpg",
+    "lentil" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPTpiAX0_tsqBaG7Jjf2pxqHlazR8AJpcTIQ&s.jpg",
+    "pomegranate" : "https://agrosiaa.com/uploads/userdata/blogs/24/promogrante.jpg",
+    "banana" : "https://lh5.googleusercontent.com/proxy/J42xcyQRj8Z86ZhGQEeEKANE3DV3PfSoQbm_ZG4VNwoaCl8tktdRur1TlvDOweW2VMCK8IoqXfxGc4ZDk96rdEcvXQZnObzaMGtBpruKfVlEKHw.jpg",
+    "grapes" : "https://plantix.net/en/library/assets/custom/crop-images/grape.jpeg",
+    "papaya" : "https://www.agrifarming.in/wp-content/uploads/2022/06/Papaya-Farming-in-USA1-1024x768.jpg",
+    "jute" : "https://krishipathshala.in/wp-content/uploads/2020/08/JUTE-CULTIVATION-IN-SOUTHDINAJPUR-converted-1024x582.jpg",
+    "coffee" : "https://vajiram-prod.s3.ap-south-1.amazonaws.com/Coffee_production_jpg_67bae9504f.jpg",
+    
+    
     # Add other crops and their URLs here
 }
 
